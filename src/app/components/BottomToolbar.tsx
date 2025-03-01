@@ -38,10 +38,11 @@ function BottomToolbar({
   }
 
   function getConnectionButtonClasses() {
-    const baseClasses = "text-white text-base p-2 flex items-center justify-center transition-all duration-300";
+    const baseClasses =
+      "text-white text-base p-2 flex items-center justify-center transition-all duration-300";
     const cursorClass = isConnecting ? "cursor-not-allowed" : "cursor-pointer";
     const responsiveClasses = "w-36 h-12 rounded-full sm:w-24 sm:h-14 sm:rounded-full";
-    
+
     if (isConnected) {
       return `bg-red-600 hover:bg-red-700 ${cursorClass} ${baseClasses} ${responsiveClasses}`;
     }
@@ -49,9 +50,14 @@ function BottomToolbar({
   }
 
   return (
-    // The container stays horizontal at all times with flex-row and flex-nowrap.
-    // It scales to 50% by default (mobile) and 75% on medium and larger screens.
-    <div className="transform origin-bottom scale-50 md:scale-75 fixed bottom-[-10px] left-0 w-full p-4 flex flex-row flex-nowrap items-center justify-center">
+    <div
+      className="
+        fixed bottom-0 left-0 w-full p-4 
+        flex flex-row flex-nowrap items-center justify-center
+        transform origin-bottom scale-50 md:scale-75
+        overflow-x-auto
+      "
+    >
       <button
         onClick={onToggleConnection}
         className={getConnectionButtonClasses()}
@@ -60,12 +66,12 @@ function BottomToolbar({
         <span className="text-sm sm:text-xs">{getConnectionButtonLabel()}</span>
       </button>
 
-      <div className="flex flex-row flex-nowrap items-center gap-2 ml-4">
+      <div className="flex flex-row items-center gap-2 ml-4">
         <input
           id="push-to-talk"
           type="checkbox"
           checked={isPTTActive}
-          onChange={e => setIsPTTActive(e.target.checked)}
+          onChange={(e) => setIsPTTActive(e.target.checked)}
           disabled={!isConnected}
           className="w-4 h-4"
         />
@@ -80,18 +86,22 @@ function BottomToolbar({
           disabled={!isPTTActive}
           className={`py-1 px-4 rounded-full ${
             isPTTUserSpeaking ? "bg-gray-300" : "bg-gray-200"
-          } ${!isPTTActive ? "bg-gray-100 text-gray-400 cursor-not-allowed" : "cursor-pointer"}`}
+          } ${
+            !isPTTActive
+              ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+              : "cursor-pointer"
+          }`}
         >
           Talk
         </button>
       </div>
 
-      <div className="flex flex-row flex-nowrap items-center gap-2 ml-4">
+      <div className="flex flex-row items-center gap-2 ml-4">
         <input
           id="audio-playback"
           type="checkbox"
           checked={isAudioPlaybackEnabled}
-          onChange={e => setIsAudioPlaybackEnabled(e.target.checked)}
+          onChange={(e) => setIsAudioPlaybackEnabled(e.target.checked)}
           disabled={!isConnected}
           className="w-4 h-4"
         />
@@ -100,12 +110,12 @@ function BottomToolbar({
         </label>
       </div>
 
-      <div className="flex flex-row flex-nowrap items-center gap-2 ml-4">
+      <div className="flex flex-row items-center gap-2 ml-4">
         <input
           id="logs"
           type="checkbox"
           checked={isEventsPaneExpanded}
-          onChange={e => setIsEventsPaneExpanded(e.target.checked)}
+          onChange={(e) => setIsEventsPaneExpanded(e.target.checked)}
           className="w-4 h-4"
         />
         <label htmlFor="logs" className="cursor-pointer">
