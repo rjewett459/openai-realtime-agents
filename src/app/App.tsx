@@ -404,20 +404,21 @@ function App() {
   const agentSetKey = searchParams.get("agentConfig") || "default";
 
   return (
-    <div className="text-base flex flex-col h-screen bg-gray-100 text-gray-800 relative">
+    <div className="text-base flex flex-col h-screen bg-gray-100 text-gray-800 relative">  
       <div className="p-5 text-lg font-semibold flex justify-between items-center">
         <div className="flex items-center">
           <div onClick={() => window.location.reload()} style={{ cursor: 'pointer' }}>
             <Image
-              src="/openai-logomark.svg"
-              alt="ChatSites Logo"
-              width={35}
-              height={35}
-              className="mr-2"
+            src="/chatsites-logo.png"
+            alt="ChatSites Logo"
+            width={35}
+            height={35}
+            className="mr-2 transparent-logo"
             />
+
           </div>
           <div>
-            ChatSites™ AI <span className="text-gray-500">Agents</span>
+            ChatSites™ AI <span className="text-gray-500">Portal</span>
           </div>
         </div>
         <div className="flex items-center">
