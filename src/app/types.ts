@@ -30,14 +30,18 @@ export interface AgentConfig {
   publicDescription?: string;
   description?: string;
   instructions: string;
-  personality?: { // ✅ Add demeanor and other properties
+  personality?: { // ✅ Add emotion and other properties
     identity?: string;
     description?: string;
     role?: string;
-    demeanor?: string; // ✅ Now allows demeanor
+    demeanor?: string;
     tone?: string;
     enthusiasm?: string;
     formality?: string;
+    emotion?: string; // ✅ Now allows emotion
+    filler_words?: string;
+    pacing?: string;
+    interruptibility?: string;
   };
   tools: Tool[];
   toolLogic?: Record<
