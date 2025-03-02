@@ -27,9 +27,14 @@ export interface Tool {
 
 export interface AgentConfig {
   name: string;
-  publicDescription?: string; // gives context to agent transfer tool
+  publicDescription?: string; // Context for agent transfer tool
   description?: string; // ✅ Allows description as an optional property
   instructions: string;
+  personality?: { // ✅ Add this to allow personality settings
+    identity?: string;
+    description?: string;
+    role?: string;
+  };
   tools: Tool[];
   toolLogic?: Record<
     string,
@@ -37,6 +42,7 @@ export interface AgentConfig {
   >;
   downstreamAgents?: AgentConfig[] | { name: string; publicDescription?: string }[];
 }
+
 
 export type AllAgentConfigsType = Record<string, AgentConfig[]>;
 
