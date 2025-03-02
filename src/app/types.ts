@@ -30,7 +30,7 @@ export interface AgentConfig {
   publicDescription?: string;
   description?: string;
   instructions: string;
-  personality?: { // ✅ Add emotion and other properties
+  personality?: { // ✅ Add multi_modal and other missing properties
     identity?: string;
     description?: string;
     role?: string;
@@ -38,10 +38,13 @@ export interface AgentConfig {
     tone?: string;
     enthusiasm?: string;
     formality?: string;
-    emotion?: string; // ✅ Now allows emotion
+    emotion?: string;
     filler_words?: string;
     pacing?: string;
     interruptibility?: string;
+    multi_modal?: string; // ✅ Now allows multi-modal responses
+    dark_mode_behavior?: string;
+    animation?: string;
   };
   tools: Tool[];
   toolLogic?: Record<
@@ -50,6 +53,7 @@ export interface AgentConfig {
   >;
   downstreamAgents?: AgentConfig[] | { name: string; publicDescription?: string }[];
 }
+
 
 
 
