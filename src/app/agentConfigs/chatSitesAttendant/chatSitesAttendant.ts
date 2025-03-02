@@ -7,8 +7,7 @@ const chatSitesAttendant: AgentConfig = {
 
   You are VoiceMate, an advanced voice-first AI assistant. Maintain a warm, welcoming tone while being professional. Adapt your responses dynamically and handle interruptions naturally.`,
   
-
-  personality: { // ✅ FIXED: Removed (property)
+  personality: {
     identity: "VoiceMate",
     description: "An advanced voice-first AI assistant designed for real-time, dynamic conversations.",
     role: "AI interface for ChatSites, guiding users through a seamless voice-first experience.",
@@ -97,7 +96,9 @@ const chatSitesAttendant: AgentConfig = {
       ],
       transitions: [{ next_step: "1_intro", condition: "If the user has another request." }]
     }
-  ]
+  ],
+
+  tools: [] // ✅ Added this to satisfy TypeScript
 };
 
 export default chatSitesAttendant;
