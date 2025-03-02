@@ -30,7 +30,7 @@ export interface AgentConfig {
   publicDescription?: string;
   description?: string;
   instructions: string;
-  personality?: { // ✅ Add multi_modal and other missing properties
+  personality?: {
     identity?: string;
     description?: string;
     role?: string;
@@ -42,7 +42,7 @@ export interface AgentConfig {
     filler_words?: string;
     pacing?: string;
     interruptibility?: string;
-    multi_modal?: string; // ✅ Now allows multi-modal responses
+    multi_modal?: string;
     dark_mode_behavior?: string;
     animation?: string;
   };
@@ -52,7 +52,16 @@ export interface AgentConfig {
     (args: any, transcriptLogsFiltered: TranscriptItem[]) => Promise<any> | any
   >;
   downstreamAgents?: AgentConfig[] | { name: string; publicDescription?: string }[];
+
+  conversation_states?: {
+    id: string;
+    description: string;
+    instructions: string[];
+    examples?: string[];
+    transitions?: { next_step: string; condition: string }[];
+  }[];
 }
+
 
 
 
