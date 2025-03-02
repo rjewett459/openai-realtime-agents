@@ -418,7 +418,7 @@ function App() {
 
           </div>
           <div>
-            ChatSites™ AI <span className="text-gray-500">Portal</span>
+            ChatSites™<span className="text-gray-500">Portal</span>
           </div>
         </div>
         <div className="flex items-center">
