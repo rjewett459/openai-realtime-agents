@@ -1,6 +1,3 @@
-import chatSitesAttendant from "./chatSitesAttendant/chatSitesAttendant";
-
-
 export type SessionStatus = "DISCONNECTED" | "CONNECTING" | "CONNECTED";
 
 export interface ToolParameterProperty {
